@@ -13,8 +13,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function getSumOfDigits(/* n */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  let n = arguments[0];
+  let sum = 0;
+  n = n.toString().split("");
+  n.forEach(element => {
+    sum += parseInt(element);
+  });
+  if (sum < 10) {
+    return sum;
+  }
+  else {
+    return getSumOfDigits(sum);
+  }
 }
 
 module.exports = {
